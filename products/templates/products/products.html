@@ -21,7 +21,6 @@
                 <a href="#" class="list-group-item">{{ category }}</a>
                 {% endfor %}
             </div>
-
         </div>
         <!-- /.col-lg-3 -->
 
@@ -52,7 +51,7 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
+            </div>  
 
             <div class="row">
                 {% for product in products %}
@@ -71,7 +70,9 @@
                             <p class="card-text">{{ product.description }}</p>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="button" class="btn btn-outline-success">Отправить в корзину</button>
+                            <a class="btn btn-outline-success" href="{% url 'products:basket_add' product.id %}">
+                                Отправить в корзину
+                            </a>
                         </div>
                     </div>
                 </div>
