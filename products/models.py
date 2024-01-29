@@ -8,6 +8,10 @@ class ProductCategory(models.Model):
     category_description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return self.category_name
 
@@ -21,6 +25,10 @@ class Product(models.Model):
     product_quantity = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return f"Продукт: {self.product_name} | Категория: {self.category.category_name}"
